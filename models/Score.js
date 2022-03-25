@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Score extends Model { }
@@ -12,18 +12,18 @@ Score.init(
             autoIncrement: true
         },
         total_score: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         user_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: "user",
                 key: "id"
             }
         },
         quiz_id: {
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             references: {
                 model: "quiz",
                 key: "id"
