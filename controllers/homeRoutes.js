@@ -23,5 +23,15 @@ router.get("/", withAuth, async (req, res) => {
     }
 });
 
+// Renders the login page
+router.get("/login", (req, res) => {
+    //If the user is already logged in, redirect to the homepage.
+    if (req.session.logged_in) {
+        res.redirect("/");
+    }
+
+    // Otherwise render the login page
+    res.render("login");
+});
 
 module.exports = router;
