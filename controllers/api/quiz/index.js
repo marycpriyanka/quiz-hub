@@ -8,7 +8,6 @@ const scoreRoutes = require('./scoreRoutes');
 router.use('/quiz', quizRoutes);
 router.use('/category', categoryRoutes);
 router.use('/questions', questionRoutes);
-router.use('/choices', choicesRoutes);
 router.use('/scores', scoreRoutes);
 
 module.exports = router;
