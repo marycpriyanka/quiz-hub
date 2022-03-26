@@ -2,7 +2,6 @@ const User = require("./User");
 const Category = require("./Category");
 const Quiz = require("./Quiz");
 const Question = require("./Question");
-//const Choices = require("./Choices");
 const Score = require("./Score");
 
 Category.hasMany(Quiz, {
@@ -23,14 +22,6 @@ Question.belongsTo(Quiz, {
     foreignKey: "quiz_id"
 });
 
-// Question.hasMany(Choices, {
-//     foreignKey: "question_id",
-//     onDelete: "CASCADE"
-// });
-
-// Choices.belongsTo(Question, {
-//     foreignKey: "question_id"
-// })
 
 User.hasMany(Score, {
     foreignKey: "user_id",
