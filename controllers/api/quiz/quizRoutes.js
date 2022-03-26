@@ -30,7 +30,7 @@ router.delete('/:id', async (req, res) => {
         return;
       }
   
-      res.status(200).json(projectData);
+      res.status(200).json(quizData);
     } catch (err) {
       res.status(500).json(err);
     }
