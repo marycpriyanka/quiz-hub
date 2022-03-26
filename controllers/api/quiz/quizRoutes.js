@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Quiz, User, Category } = require('../../../models');
+const { Quiz } = require('../../../models');
 
 //post quiz
 router.post('/', async (req, res) => {
