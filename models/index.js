@@ -13,6 +13,15 @@ Quiz.belongsTo(Category, {
     foreignKey: "category_id"
 });
 
+User.hasMany(Quiz, {
+    foreignKey: "user_id",
+    onDelete: "CASCADE"
+});
+
+Quiz.belongsTo(User, {
+    foreignKey: "user_id"
+})
+
 Quiz.hasMany(Question, {
     foreignKey: "quiz_id",
     onDelete: "CASCADE"
