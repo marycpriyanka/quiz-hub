@@ -1,3 +1,4 @@
+/*COVERS ALL PAGES */
 :root {
     --header: #c6f3f3;
     --outline: rgb(7, 182, 212);
@@ -10,9 +11,13 @@
 
 body {
     background-color: var(--white); 
+    text-align: center;
 }
 
-.header {
+/*HOME PAGE*/
+
+/*home header*/
+.home-header {
     width: auto;
     display: flex;
     justify-content: space-between;
@@ -22,7 +27,7 @@ body {
 }
 
 /* page title */
-.header h1 {
+.home-header h1 {
     margin-left: 20px;
     display: inline-block;
     color: var(--black);
@@ -31,8 +36,10 @@ body {
     text-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-/* lays our the header */
-.header nav {
+/* NAVIGATION */
+
+/* lays our the navigation links to the right */
+.home-header nav {
     padding-top: 45px;
     margin-right: 30px;
     float: right;
@@ -40,12 +47,12 @@ body {
     font-size: 30px;
 }
 
-.header nav ul li {
+.home-header nav ul li {
     display: inline-block;
     margin-left: 25px;
 }
 
-/* this controls the link text style at the top of the page */
+/* link styles */
 a {
     color: var(--black);
     text-decoration: none;
@@ -108,7 +115,6 @@ a:hover {
     display: block;
   }
 
-
 /* middle section of page */ 
 h2 {
     padding: 20px;
@@ -117,14 +123,22 @@ h2 {
     font-family: var(--dosis);
 }
 
-.container {
+
+
+
+
+
+
+
+/*HOMEPAGE GRID */
+.homepage-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: minmax(150px, auto);
     gap: 20px;
   }
 
-.container > div {
+.homepage-container > div {
     font-family: var(--dosis);
     font-size: 24px;
     text-align: center;
@@ -135,36 +149,106 @@ h2 {
     /*border: 2px solid var(--outline);*/
 }
 
-.container > div:hover {
+.homepage-container > div:hover {
    opacity: 1.0;
    color: var(--black)
 }
 
 
-/*
-.quiz-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: hidden;
+
+/* LOGIN PAGE */
+
+.login-header {
+  width: auto;
+  justify-content: space-between;
+  font-family: var(--dosis);
+  font-weight: 200px;
+  background-color: var(--header);
 }
 
-.quiz-container img {  
-    margin: 15px;
-    width: 200px;
-    height: 270px;
+/* page title */
+.login-header h1 {
+  display: inline-block;
+  color: var(--black);
+  font-family: var(--marker);
+  font-size: 64px;
+  text-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-img {
+/* Bordered LOGIN form */
+div.form {
+  display: block;
+  text-align: center;
+}
+
+form {
+  font-family: var(--dosis);
+  border: 3px solid #f1f1f1;
+  width: 60%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  font-family: var(--dosis);
+  font-size: 16px;
+  background-color: var(--header);
+  color: var(--black);
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+  color: var(--highlight);
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  font-family: var(--dosis);
+  width: auto;
+  padding: 10px 18px;
+  background-color: var(--highlight);
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* The "New User" text */
+span.newuser {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 2px 2px 5px black;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
-*/
-footer {
-    text-align: center;
-}
+
 
 
 
