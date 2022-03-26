@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Question } = require('../../../models');
 
+<<<<<<< HEAD
 router.get('/', (req,res) => {
     Question.findAll({
         attributes: [
@@ -39,5 +40,11 @@ router.get('/:quiz_id', (req, res) => {
     })
 }) */
 
+=======
+router.get('/:quiz_id', (req,res) => {
+    Question.findOne({})
+    .then()
+})
+>>>>>>> 81d566d759ca8ab6bc34c038545592bf5ae187f6
 
 module.exports = router;
