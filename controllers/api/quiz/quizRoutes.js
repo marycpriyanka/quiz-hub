@@ -15,6 +15,26 @@ router.post('/', async (req, res) => {
     }
 });
 
+//update quiz
+router.put('/', async (req, res) => {
+    try {
+        const updateQuiz = await Quiz.update(
+          {
+            quiz_name: req.params.body
+          },
+          {
+            where: {
+              id: req.params.id
+            }
+          }  
+        );
+    
+        res.status(200).json(updateQuiz);
+      } catch (err) {
+        res.status(400).json(err);
+      }
+});
+
 //delete quiz
 router.delete('/:id', async (req, res) => {
     try {
