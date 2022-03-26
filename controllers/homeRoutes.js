@@ -70,4 +70,15 @@ router.get("/scores", withAuth, async (req, res) => {
     }
 });
 
+// Route to render the Create Quiz page
+router.get("/createQuiz", withAuth, async (req, res) => {
+    try {
+        res.render("createQuiz");
+    }
+    catch (err) {
+        console.log(`Error in rendering the Create Quiz page: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
