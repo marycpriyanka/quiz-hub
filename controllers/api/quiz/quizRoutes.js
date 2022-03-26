@@ -20,7 +20,7 @@ router.put('/', async (req, res) => {
     try {
         const updateQuiz = await Quiz.update(
           {
-            quiz_name: req.body
+            quiz_name: req.body.quiz_name
           },
           {
             where: {
