@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Quiz } = require('../../../models');
-const withAuth = require('../../../utils/auth');
 
 //post quiz
 router.post('/', async (req, res) => {
@@ -56,7 +55,5 @@ router.delete('/:id', async (req, res) => {
       res.status(500).json(err);
     }
 });
-
-// get 
 
 module.exports = router;
