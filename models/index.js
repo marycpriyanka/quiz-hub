@@ -22,6 +22,7 @@ Question.belongsTo(Quiz, {
     foreignKey: "quiz_id"
 });
 
+
 User.hasMany(Score, {
     foreignKey: "user_id",
     onDelete: "CASCADE"
