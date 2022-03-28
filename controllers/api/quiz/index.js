@@ -2,7 +2,6 @@ const router = require('express').Router();
 const quizRoutes = require('./quizRoutes');
 const categoryRoutes = require('./categoryRoutes');
 const questionRoutes = require('./questionRoutes');
-const choicesRoutes = require('./choicesRoutes');
 const scoreRoutes = require('./scoreRoutes');
 
 router.use('/quiz', quizRoutes);
