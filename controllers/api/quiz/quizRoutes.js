@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
 });
 
 //update quiz
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         const updateQuiz = await Quiz.update(
           {
