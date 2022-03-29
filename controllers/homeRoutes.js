@@ -73,10 +73,34 @@ router.get("/scores", withAuth, async (req, res) => {
 // Route to render the Create Quiz page
 router.get("/createQuiz", withAuth, async (req, res) => {
     try {
-        res.render("createQuiz");
+        res.render("createquiz");
     }
     catch (err) {
         console.log(`Error in rendering the Create Quiz page: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+// Route to render quiz page according to category selected
+router.get("/:id", withAuth, async (req, res) => {
+    try {
+        const categoryData = await Category.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Quiz
+                }
+            ]
+        });
+
+        const category = categoryData.get({ plain: true });
+
+        res.render("categories", {
+            category,
+            logged_in: req.session.logged_in
+        });
+    }
+    catch (err) {
+        console.log(`Error in getting quiz by category page: ${err}`);
         res.status(500).json(err);
     }
 });
