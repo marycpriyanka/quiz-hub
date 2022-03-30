@@ -13,12 +13,9 @@
                     <a href=#categories>Categories</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
-                        <a href="#animals">Animals</a>
-                        <a href="#coding">Coding</a>
-                        <a href="#geography">Geography</a>
-                        <a href="#movies">Movies</a>
-                        <a href="#music">Music</a>
-                        <a href="#pnw">PNW</a>
+                        {{#each categories as |category|}}
+                        <a href="/category/:id">{{category.category_name}}</a>
+                        {{/each}}
                     </div>
                     </div>
                 </li>
@@ -35,16 +32,10 @@
     Links are above &#8593; and a sampling of user-made quizzes are below &#8595; </p>
 
     <div class="homepage-container">
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-        <div>Quiz</div>
-    
+        {{#each quizzes as |quiz|}}
+        <div>quiz.quiz_name</div>
+        {{/each}}
+    </div>
         
 </main>
 
