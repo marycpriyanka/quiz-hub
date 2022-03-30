@@ -49,5 +49,7 @@ router.post('/', (req,res) => {
     });
 });
 
+router.put(':/quiz_id')
+
 
 module.exports = router;
