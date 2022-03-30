@@ -1,28 +1,11 @@
 const router = require('express').Router();
 const { Question } = require('../../../models');
 
-router.get('/', (req,res) => {
-    Question.findAll({
-        attributes: [
-            'id',
-            'question_text',
-            'choice1',
-            'choice2',
-            'choice3',
-            'choice4'
-        ],
-    })
-    .then(dbQuestionData => res.json(dbQuestionData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-});
-
 router.get('/:quiz_id', (req, res) => {
-    Question.findOne({
+    Question.findByPk({
         where: {
             quiz_id: req.params.quiz_id
+        
         }
     })
     .then(dbQuestionData => res.json(dbQuestionData))
@@ -40,7 +23,6 @@ router.post('/', (req,res) => {
         choice3:req.body.choice3,
         choice4:req.body.choice4,
         correct_answer:req.body.correct_answer
-       
     })
     .then(dbQuestionData => res.json(dbQuestionData))
     .catch(err => {
@@ -49,7 +31,51 @@ router.post('/', (req,res) => {
     });
 });
 
-router.put(':/quiz_id')
+router.put(':/quiz_id', (req,res) => {
+    Question.update({
+        question_text: req.body.question_text,
+        choice1:req.body.choice1,
+        choice2:req.body.choice2,
+        choice3:req.body.choice3,
+        choice4:req.body.choice4,
+        correct_answer:req.body.correct_answer
+    },
+    {
+        where: {
+            quiz_id: req.params.quiz_id
+        }
+    })
+    .then(dbQuestionData => {
+        if(!dbQuestionData) {
+            res.status(404).json({message: 'No quiz found with used quiz id'});
+            return;
+        }
+        res.json(dbQuestionData)
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.delete('/:quiz_id', (req,res) => {
+    PermissionStatus.destory({
+        where: {
+            quiz_id: req.params.quiz_id
+        }
+    })
+    .then(dbQuestionData => {
+        if(!dbQuestionData) {
+            res.status(404).json({ message: 'No quiz found with used quiz id'});
+            return;
+        }
+        res.json(dbQuestionData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;
