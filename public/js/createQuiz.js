@@ -1,8 +1,8 @@
 const addQuiz = async (event) => {
     event.preventDefault();
 
-    const category = document.querySelector('').value;
-    const quiz_name = document.querySelector('').value.trim();
+    const category = document.querySelector('#selectedCategory').value;
+    const quiz_name = document.querySelector('#quizName').value.trim();
     
     if (category && quiz_name) {
         const response = await fetch('/api/quiz/quiz', {
