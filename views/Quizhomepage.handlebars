@@ -1,24 +1,21 @@
 <header class="home-header">
-        <h1><a href="/homepage">Quiz Hub</a></h1>
+        <h1><a href="/">Quiz Hub</a></h1>
         <nav>
             <ul>
                 <li>
-                    <a href="#create">Create</a>
+                    <a href="/createQuiz">Create</a>
                 </li>
                 <li>
-                    <a href="#scores">Scores</a>
+                    <a href="/scores">Scores</a>
                 </li>
                 <li>
                     <div class="dropdown dropbtn">
-                    <a href=#categories>Categories</a>
+                    <a href="#">Categories</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
-                        <a href="#animals">Animals</a>
-                        <a href="#coding">Coding</a>
-                        <a href="#geography">Geography</a>
-                        <a href="#movies">Movies</a>
-                        <a href="#music">Music</a>
-                        <a href="#pnw">PNW</a>
+                        {{#each categories as |category|}}
+                        <a href="/category/{{category.id}}">{{category.category_name}}</a>
+                        {{/each}}
                     </div>
                     </div>
                 </li>
@@ -30,18 +27,13 @@
     </header>
     <main>
 
-    <h2 id="categoryname"> Quizzes </h2>
+    <h2 id="categoryname"> {{category.category_name}} </h2>
 
     <div class="quizpage-container">
-        <div id="quiz1"></div>
-        <div id="quiz2"></div>
-        <div id="quiz3"></div>
-        <div id="quiz4"></div>
-        <div id="quiz5"></div>
-        <div id="quiz6"></div>
-      
+        {{#each category.quizzes as |quiz|}}
+        <a href="#"><div id="quiz1">{{quiz.quiz_name}}</div></a>
+        {{/each}}
     
-        
 </main>
 
 <script src="/js/logout.js"></script>

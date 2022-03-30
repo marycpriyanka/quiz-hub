@@ -55,9 +55,16 @@ router.get("/signup", (req, res) => {
 router.get("/scores", withAuth, async (req, res) => {
     try {
         const scoreData = await Score.findAll({
-            include: [{
-                model: Quiz
-            }],
+            include: [
+                {
+                    model: Quiz,
+                    include: [
+                        {
+                            model: Category
+                        }
+                    ]
+                }
+            ],
             where: {
                 user_id: req.session.user_id
             }
@@ -65,8 +72,16 @@ router.get("/scores", withAuth, async (req, res) => {
 
         const scores = scoreData.map(score => score.get({ plain: true }));
 
-        res.render("scores", {
+        console.log(scores);
+
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("highscores", {
             scores,
+            categories,
             logged_in: req.session.logged_in
         });
     }
@@ -79,7 +94,12 @@ router.get("/scores", withAuth, async (req, res) => {
 // Route to render the Create Quiz page
 router.get("/createQuiz", withAuth, async (req, res) => {
     try {
-        res.render("createquiz");
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("createquiz1", { categories });
     }
     catch (err) {
         console.log(`Error in rendering the Create Quiz page: ${err}`);
@@ -88,7 +108,7 @@ router.get("/createQuiz", withAuth, async (req, res) => {
 });
 
 // Route to render quiz page according to category selected
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/category/:id", withAuth, async (req, res) => {
     try {
         const categoryData = await Category.findByPk(req.params.id, {
             include: [
@@ -100,8 +120,14 @@ router.get("/:id", withAuth, async (req, res) => {
 
         const category = categoryData.get({ plain: true });
 
-        res.render("categories", {
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("Quizhomepage", {
             category,
+            categories,
             logged_in: req.session.logged_in
         });
     }
