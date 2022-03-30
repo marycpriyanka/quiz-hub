@@ -88,7 +88,7 @@ router.get("/createQuiz", withAuth, async (req, res) => {
 });
 
 // Route to render quiz page according to category selected
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/category/:id", withAuth, async (req, res) => {
     try {
         const categoryData = await Category.findByPk(req.params.id, {
             include: [
