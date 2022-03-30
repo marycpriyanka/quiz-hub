@@ -2,7 +2,7 @@
         <h1><a href="/">Quiz Hub</a></h1>
     </header>
     <main>
-        <h2> Register here! </h2>
+        <h2> Welcome to the quizside! </h2>
     <div>
     <form class="signup-form">
       
@@ -15,19 +15,16 @@
       
           <label for="psw"><b>Password</b></label>
           <input id="psw" type="password" placeholder="Enter Password" name="psw" required>
-      
+          <p class="pswcrit">*Password must contain letters and numbers and be a minimum of 8 characters</p>
           <button type="submit">Register</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
         </div>
       
         <div class="container" style="background-color:#f1f1f1">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="newuser"> Already a registered user? Click <a href="/login">here</a> to log in!</span>
+          <button class="newuserbtn"><a class="newuserhover" href="/login">Already a registered user? Click here to log in!</a></button>
         </div>
       </form>
       </div>
     </main>
 
     <script src="/js/signup.js"></script>
+
