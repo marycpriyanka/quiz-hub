@@ -1,17 +1,15 @@
- <header class="home-header">
-
 <header class="home-header">
-        <h1><a href="/">Quiz Hub</a></h1>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/createQuiz">Create</a>
-                </li>
-                <li>
-                    <a href="/scores">Scores</a>
-                </li>
-                <li>
-                    <div class="dropdown dropbtn">
+    <h1><a href="/">Quiz Hub</a></h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/createQuiz">Create</a>
+            </li>
+            <li>
+                <a href="/scores">Scores</a>
+            </li>
+            <li>
+                <div class="dropdown dropbtn">
                     <a href="#">Categories</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
@@ -19,36 +17,33 @@
                         <a href="/category/{{category.id}}">{{category.category_name}}</a>
                         {{/each}}
                     </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" id="logout">Logout</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-    <main>
-        <h2> Create your very own quiz below &#8595; </h2>
+                </div>
+            </li>
+            <li>
+                <a href="#" id="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2> Create your very own quiz below &#8595; </h2>
     <div>
-    <form class="quizform">
-        <div class="container">
-          <label for="category"><b>Select Category</b></label>
-          <select name "dropdown">
-              <option value ="Animals" selected>Animals</option>
-              <option value ="Coding" selected>Coding</option>
-              <option value ="Geography" selected>Geography</option>
-              <option value ="Music" selected>Music</option>
-              <option value ="Movies" selected>Movies</option>
-              <option value ="PNW" selected>PNW</option>
-          </select>
-          <input type="text" placeholder="Title of Quiz" name="Title" required>
-            
-          <button class="newquizbtn">Start adding questions!</button>
-         
-        </div>
-     
-      </form>
-      </div>
-    </main>
+        <form class="quizform">
+            <div class="container">
+                <label for="category"><b>Select Category</b></label>
+                <select name "dropdown">
+                    <option value="Animals" selected>Animals</option>
+                    <option value="Coding" selected>Coding</option>
+                    <option value="Geography" selected>Geography</option>
+                    <option value="Music" selected>Music</option>
+                    <option value="Movies" selected>Movies</option>
+                    <option value="PNW" selected>PNW</option>
+                </select>
+                <input type="text" placeholder="Title of Quiz" name="Title" required>
+
+                <button class="newquizbtn">Start adding questions!</button>
+            </div>
+        </form>
+    </div>
+</main>
 <script src="/js/logout.js"></script>
