@@ -110,7 +110,7 @@ router.get("/category/:id", withAuth, async (req, res) => {
         });
 
         const category = categoryData.get({ plain: true });
-
+        console.log(category);
         // Gets all categories
         const categoriesData = await Category.findAll();
 
