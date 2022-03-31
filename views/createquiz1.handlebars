@@ -31,19 +31,21 @@
         <form class="quizform">
             <div class="container">
                 <label for="category"><b>Select Category</b></label>
-                <select name "dropdown">
-                    <option value="Animals" selected>Animals</option>
-                    <option value="Coding" selected>Coding</option>
-                    <option value="Geography" selected>Geography</option>
-                    <option value="Music" selected>Music</option>
-                    <option value="Movies" selected>Movies</option>
-                    <option value="PNW" selected>PNW</option>
+                <select id="selectedCategory" name "dropdown">
+                    <option value="1" selected>Animals</option>
+                    <option value="2" selected>Coding</option>
+                    <option value="3" selected>Geography</option>
+                    <option value="4" selected>Music</option>
+                    <option value="5" selected>Movies</option>
+                    <option value="6" selected>PNW</option>
                 </select>
-                <input type="text" placeholder="Title of Quiz" name="Title" required>
+                <input id="quizName" type="text" placeholder="Title of Quiz" name="Title" required>
 
-                <button class="newquizbtn">Start adding questions!</button>
+                <button type="submit" class="newquizbtn">Start adding questions!</button>
             </div>
         </form>
     </div>
 </main>
+
+<script src="/js/createQuiz.js"></script>
 <script src="/js/logout.js"></script>

@@ -19,7 +19,7 @@ User.hasMany(Quiz, {
 });
 
 Quiz.belongsTo(User, {
-    foreignKey: "user_id"
+    foreignKey: "user_id",
 })
 
 Quiz.hasMany(Question, {

@@ -1,15 +1,18 @@
 const addQuiz = async (event) => {
     event.preventDefault();
 
+    const quiz = document.querySelector('#quizName').value.trim();
     const category = document.querySelector('#selectedCategory').value;
-    const quiz_name = document.querySelector('#quizName').value.trim();
-    
-    if (category && quiz_name) {
+
+    console.log(quiz);
+    console.log(category);
+
+    if (quiz && category) {
         const response = await fetch('/api/quiz/quiz', {
             method: 'POST',
             body: JSON.stringify({ 
-                category_id: category,
-                quiz_name 
+                quiz_name: quiz,
+                category_id: category
             }),
             headers: { 'Content-Type': 'application/json' },
         });
@@ -19,15 +22,10 @@ const addQuiz = async (event) => {
             document.location.replace('/')
         } else {
             alert(response.statusText);
+            console.log(response.body);
+            console.log({quiz_name: quiz}, {category_id: category})
         }
     }
 };
 
-const addQuestion = async (event) => {
-    event.preventDefault();
-
-    const question = document.querySelector('').value.trim();
-    const choices = document.querySelector('').value.trim();
-    const correctChoice = document.querySelector('').value.trim();
-
-}
+document.querySelector('.quizform').addEventListener('submit', addQuiz);
