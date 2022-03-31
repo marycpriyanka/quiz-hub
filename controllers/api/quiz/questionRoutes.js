@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Question } = require('../../../models');
 
-router.post('/', (req,res) => {
+router.post('/:quiz_id', (req,res) => {
     Question.create({
         question_text: req.body.question_text,
         choice1:req.body.choice1,
