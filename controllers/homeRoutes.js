@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Quiz, Score, Category } = require('../models');
+const { User, Quiz, Score, Category, Question } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get("/", withAuth, async (req, res) => {
@@ -148,7 +148,37 @@ router.get("/category/:id", withAuth, async (req, res) => {
         });
     }
     catch (err) {
-        console.log(`Error in getting quiz by category page: ${err}`);
+        console.log(`Error in getting quiz by category id: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/quiz/:id", withAuth, async (req, res) => {
+    try {
+        const quizData = await Quiz.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Question
+                }
+            ]
+        });
+
+        const quiz = quizData.get({ plain: true });
+console.log(quiz);
+
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("takequiz", {
+            quiz,
+            categories,
+            logged_in: req.session.logged_in
+        });
+    }
+    catch (err) {
+        console.log(`Error in getting questions by quiz id: ${err}`);
         res.status(500).json(err);
     }
 });

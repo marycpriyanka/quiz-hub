@@ -31,29 +31,30 @@
 
     <div class="takequiz-container">
         <div> 
-            <h3 id="quiztitle">Quiz Title</h3>
-            <h2 id="question">Question</h2>
+            <h3 id="quiztitle">{{quiz.quiz_name}}</h3>
+            {{#each quiz.questions as |question|}}
+            <h2 id="question">question.question_text</h2>
                         
                 <div>
-                    <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-                    <label for="question-1-answers-A">A) </label>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-A" value="{{question.choice1}}" />
+                    <label for="question-1-answers-A">A) {{question.choice1}}</label>
                 </div>
                         
                 <div>
-                    <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-                    <label for="question-1-answers-B">B) </label>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-B" value="{{question.choice2}}" />
+                    <label for="question-1-answers-B">B) {{question.choice2}}</label>
                 </div>
                         
                 <div>
-                    <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-                    <label for="question-1-answers-C">C) </label>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-C" value="{{question.choice3}}" />
+                    <label for="question-1-answers-C">C) {{question.choice3}}</label>
                 </div>
                         
                 <div>
-                    <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-                    <label for="question-1-answers-D">D) </label>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-D" value="{{question.choice4}}" />
+                    <label for="question-1-answers-D">D) {{question.choice4}}</label>
                 </div>
-                        
+             {{/each}}           
         </div>
         <br>
         <br>
