@@ -33,7 +33,7 @@
         <div> 
             <h3 id="quiztitle">{{quiz.quiz_name}}</h3>
             {{#each quiz.questions as |question|}}
-            <h2 id="question">{{question.question_text}}</h2>
+            <h2 id="question" data-answer="{{question.correct_answer}}">{{question.question_text}}</h2>
                         
                 <div>
                     <input type="radio" name="question-1-answers" id="question-1-answers-A" value="{{question.choice1}}" />

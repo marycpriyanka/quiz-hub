@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Quiz, Score, Category, Question } = require('../models');
 const withAuth = require('../utils/auth');
+const shuffle = require("shuffle-array");
 
 router.get("/", withAuth, async (req, res) => {
     try {
@@ -164,7 +165,8 @@ router.get("/quiz/:id", withAuth, async (req, res) => {
         });
 
         const quiz = quizData.get({ plain: true });
-console.log(quiz);
+ 
+        shuffle(quiz.questions);
 
         // Gets all categories
         const categoriesData = await Category.findAll();
