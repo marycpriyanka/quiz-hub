@@ -1,0 +1,66 @@
+ <header class="home-header">
+        <h1><a href="/">Quiz Hub</a></h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/create">Create</a>
+                </li>
+                <li>
+                    <a href="/scores">Scores</a>
+                </li>
+                <li>
+                    <div class="dropdown dropbtn">
+                    <a href="#">Categories</a>
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                         {{#each categories as |category|}}
+                        <a href="/category/{{category.id}}">{{category.category_name}}</a>
+                        {{/each}}
+                    </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" id="logout">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+    <h2> Start your quiz &#8595; </h2>
+
+    <div class="takequiz-container">
+        <div> 
+            <h3 id="quiztitle">Quiz Title</h3>
+            <h2 id="question">Question</h2>
+                        
+                <div>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+                    <label for="question-1-answers-A">A) </label>
+                </div>
+                        
+                <div>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+                    <label for="question-1-answers-B">B) </label>
+                </div>
+                        
+                <div>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
+                    <label for="question-1-answers-C">C) </label>
+                </div>
+                        
+                <div>
+                    <input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
+                    <label for="question-1-answers-D">D) </label>
+                </div>
+                        
+        </div>
+        <br>
+        <br>
+        <button id="submitanswersbtn">Submit Answers!</button>
+      
+  
+    
+        
+</main>
+<script src="/js/logout.js"></script>
