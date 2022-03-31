@@ -4,9 +4,6 @@ const addQuiz = async (event) => {
     const quiz = document.querySelector('#quizName').value.trim();
     const category = document.querySelector('#selectedCategory').value;
 
-    console.log(quiz);
-    console.log(category);
-
     if (quiz && category) {
         fetch('/api/quiz/quiz', {
             method: 'POST',

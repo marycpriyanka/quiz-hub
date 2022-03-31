@@ -33,7 +33,7 @@
 
     <div class="homepage-container">
         {{#each quizzes as |quiz|}}
-        <div>{{quiz.quiz_name}}</div>
+        <div><a href="/quiz/{{quiz.id}}">{{quiz.quiz_name}}</a></div>
         {{/each}}
     </div>
         

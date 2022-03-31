@@ -31,7 +31,7 @@
 
     <div class="quizpage-container">
         {{#each category.quizzes as |quiz|}}
-        <a href="#"><div id="quiz1">{{quiz.quiz_name}}</div></a>
+        <div id="quiz1"><a href="/quiz/{{quiz.id}}">{{quiz.quiz_name}}</div></a>
         {{/each}}
     
 </main>
