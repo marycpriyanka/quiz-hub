@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Quiz } = require('../../../models');
-const withAuth = require('../../../utils/auth');
 
 //get all quizzes
 router.get('/', async (req, res) => {
