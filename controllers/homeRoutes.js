@@ -79,7 +79,7 @@ router.get("/scores", withAuth, async (req, res) => {
 
         const categories = categoriesData.map(category => category.get({ plain: true }));
 
-        res.render("highscores", {
+        res.render("userscores", {
             scores,
             categories,
             logged_in: req.session.logged_in
@@ -99,10 +99,26 @@ router.get("/createQuiz", withAuth, async (req, res) => {
 
         const categories = categoriesData.map(category => category.get({ plain: true }));
 
-        res.render("createquiz1", { categories });
+        res.render("createquiz1", { categories, logged_in: req.session.logged_in });
     }
     catch (err) {
         console.log(`Error in rendering the Create Quiz page: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+// Route to render the Create Quiz questions page
+router.get("/createQuestions", withAuth, async (req, res) => {
+    try {
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("createquiz2", { categories, logged_in: req.session.logged_in});
+    }
+    catch (err) {
+        console.log(`Error in rendering the Create Quiz questions page: ${err}`);
         res.status(500).json(err);
     }
 });
