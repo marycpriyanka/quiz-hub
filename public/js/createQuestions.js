@@ -1,4 +1,4 @@
-const addQuestion = async (event) => {
+const addMoreQuestion = async (event) => {
     event.preventDefault();
 
     const question = document.querySelector('#question').value.trim();
@@ -7,10 +7,12 @@ const addQuestion = async (event) => {
     const wrongAnswerB = document.querySelector('#wrong2').value.trim();
     const wrongAnswerC = document.querySelector('#wrong3').value.trim();
 
-    console.log(quiz);
-    console.log(category);
+    const quiz_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length -1
+    ];
 
-    if (quiz && category) {
+    if (question && correctAnswer && wrongAnswerA && wrongAnswerB && wrongAnswerC && quiz_id) {
+
         const response = await fetch('/api/quiz/questions/:quiz_id', {
             method: 'POST',
             body: JSON.stringify({ 
@@ -19,20 +21,55 @@ const addQuestion = async (event) => {
                 choice2: wrongAnswerA,
                 choice3: wrongAnswerB,
                 choice4: wrongAnswerC,
-                correct_answer: correctAnswer
+                correct_answer: correctAnswer,
+                quiz_id
             }),
             headers: { 'Content-Type': 'application/json' },
         });
-        
+
         if (response.ok) {
-            console.log('Quiz added')
-            document.location.replace('/')
-        } else {
-            alert(response.statusText);
-            console.log(response.body);
-            console.log({quiz_name: quiz}, {category_id: category})
+            console.log('Question added');
+            document.location.reload();
         }
     }
 };
 
-document.querySelector('.quizform').addEventListener('submit', addQuestion);
+const submitQuestion = async (event) => {
+    event.preventDefault();
+
+    const question = document.querySelector('#question').value.trim();
+    const correctAnswer = document.querySelector('#correctAnswer').value.trim();
+    const wrongAnswerA = document.querySelector('#wrong1').value.trim();
+    const wrongAnswerB = document.querySelector('#wrong2').value.trim();
+    const wrongAnswerC = document.querySelector('#wrong3').value.trim();
+
+    const quiz_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length -1
+    ];
+
+    if (question && correctAnswer && wrongAnswerA && wrongAnswerB && wrongAnswerC && quiz_id) {
+
+        const response = await fetch('/api/quiz/questions/:quiz_id', {
+            method: 'POST',
+            body: JSON.stringify({ 
+                question_text: question,
+                choice1: correctAnswer,
+                choice2: wrongAnswerA,
+                choice3: wrongAnswerB,
+                choice4: wrongAnswerC,
+                correct_answer: correctAnswer,
+                quiz_id
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            console.log('Question added');
+            document.location.replace('/')
+        }
+    }
+};
+
+
+document.querySelector('#newQ').addEventListener('click', addMoreQuestion);
+document.querySelector('#submitQ').addEventListener('click', submitQuestion);

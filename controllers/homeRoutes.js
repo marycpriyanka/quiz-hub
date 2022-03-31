@@ -108,7 +108,7 @@ router.get("/createQuiz", withAuth, async (req, res) => {
 });
 
 // Route to render the Create Quiz questions page
-router.get("/createQuestions", withAuth, async (req, res) => {
+router.get("/createQuestions/:id", withAuth, async (req, res) => {
     try {
         // Gets all categories
         const categoriesData = await Category.findAll();

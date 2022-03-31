@@ -8,7 +8,8 @@ router.post('/:quiz_id', (req,res) => {
         choice2:req.body.choice2,
         choice3:req.body.choice3,
         choice4:req.body.choice4,
-        correct_answer:req.body.correct_answer
+        correct_answer:req.body.correct_answer,
+        quiz_id: req.body.quiz_id
     })
     .then(dbQuestionData => res.json(dbQuestionData))
     .catch(err => {
