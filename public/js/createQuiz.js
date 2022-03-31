@@ -8,23 +8,24 @@ const addQuiz = async (event) => {
     console.log(category);
 
     if (quiz && category) {
-        const response = await fetch('/api/quiz/quiz', {
+        fetch('/api/quiz/quiz', {
             method: 'POST',
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 quiz_name: quiz,
                 category_id: category
             }),
             headers: { 'Content-Type': 'application/json' },
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            console.log(data.id);
+
+            if (data) {
+                console.log('Quiz added')
+                document.location.replace(`/createQuestions/${data.id}`)
+            }
+
         });
-        
-        if (response.ok) {
-            console.log('Quiz added')
-            document.location.replace('/')
-        } else {
-            alert(response.statusText);
-            console.log(response.body);
-            console.log({quiz_name: quiz}, {category_id: category})
-        }
     }
 };
 
