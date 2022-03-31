@@ -32,12 +32,9 @@
             <div class="container">
                 <label for="category"><b>Select Category</b></label>
                 <select id="selectedCategory" name "dropdown">
-                    <option value="1" selected>Animals</option>
-                    <option value="2" selected>Coding</option>
-                    <option value="3" selected>Geography</option>
-                    <option value="4" selected>Music</option>
-                    <option value="5" selected>Movies</option>
-                    <option value="6" selected>PNW</option>
+                    {{#each categories as |category|}}
+                    <option value="{{category.id}}" selected>{{category.category_name}}</option>
+                    {{/each}}
                 </select>
                 <input id="quizName" type="text" placeholder="Title of Quiz" name="Title" required>
 
