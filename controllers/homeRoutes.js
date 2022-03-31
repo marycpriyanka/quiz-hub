@@ -9,10 +9,10 @@ router.get("/", withAuth, async (req, res) => {
             limit: 9
         });
 
-        // Serialize data so that tempate can read it
+        //Serialize data so that tempate can read it
         const quizzes = quizData.map(quiz => quiz.get({ plain: true }));
 
-        // Gets all categories
+        //Gets all categories
         const categoriesData = await Category.findAll();
 
         const categories = categoriesData.map(category => category.get({ plain: true }));

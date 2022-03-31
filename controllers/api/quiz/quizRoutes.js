@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const { Quiz } = require('../../../models');
 
+//get all quizzes
+router.get('/', async (req, res) => {
+  try {
+      const quiz = await Quiz.findAll();
+
+      res.status(200).json(quiz);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
 //post quiz
 router.post('/', async (req, res) => {
     try {
