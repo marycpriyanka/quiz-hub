@@ -1,0 +1,48 @@
+<header class="home-header">
+    <h1><a href="/">Quiz Hub</a></h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/createQuiz">Create</a>
+            </li>
+            <li>
+                <a href="/scores">Scores</a>
+            </li>
+            <li>
+                <div class="dropdown dropbtn">
+                    <a href="#">Categories</a>
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        {{#each categories as |category|}}
+                        <a href="/category/{{category.id}}">{{category.category_name}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" id="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+    <h2> My Scores &#8595; </h2>
+
+    <div class="userscore-container">
+        <div>
+            <table>
+                <tr>
+                    <th><u>Quiz Name</u></th>
+                    <th><u>Your Score</u></th>
+                </tr>
+                {{#each scores as |score|}}
+                <tr>
+                    <td>{{quiz.quiz_name}}</td>
+                    <td>{{score.total_score}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+</main>
+<script src="/js/logout.js"></script>

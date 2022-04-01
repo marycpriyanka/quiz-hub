@@ -1,0 +1,48 @@
+<header class="home-header">
+    <h1><a href="/">Quiz Hub</a></h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="/createQuiz">Create</a>
+            </li>
+            <li>
+                <a href="/scores">Scores</a>
+            </li>
+            <li>
+                <div class="dropdown dropbtn">
+                    <a href="#">Categories</a>
+                    <i class="fa fa-caret-down"></i>
+                    <div class="dropdown-content">
+                        {{#each categories as |category|}}
+                        <a href="/category/{{category.id}}">{{category.category_name}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" id="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2> Create your very own quiz below &#8595; </h2>
+    <div>
+        <form class="quizform">
+            <div class="container">
+                <label for="category"><b>Select Category</b></label>
+                <select id="selectedCategory" name "dropdown">
+                    {{#each categories as |category|}}
+                    <option value="{{category.id}}" selected>{{category.category_name}}</option>
+                    {{/each}}
+                </select>
+                <input id="quizName" type="text" placeholder="Title of Quiz" name="Title" required>
+
+                <button type="submit" class="newquizbtn">Start adding questions!</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script src="/js/createQuiz.js"></script>
+<script src="/js/logout.js"></script>
