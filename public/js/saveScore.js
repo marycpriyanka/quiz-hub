@@ -31,7 +31,7 @@ const calculateAndSaveScore = async () => {
       });
 
       if (response.ok) {
-        document.location.replace("/");
+        document.location.replace(`/results/${quiz_id}`);
     }
 };
 

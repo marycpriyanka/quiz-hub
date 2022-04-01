@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Quiz, Score, Category, Question } = require('../models');
 const withAuth = require('../utils/auth');
 const shuffle = require("shuffle-array");
+const { route } = require('express/lib/application');
 
 router.get("/", withAuth, async (req, res) => {
     try {
@@ -167,6 +168,7 @@ router.get("/quiz/:id", withAuth, async (req, res) => {
         const quiz = quizData.get({ plain: true });
  
         shuffle(quiz.questions);
+        console.log(quiz.questions);
 
         // Gets all categories
         const categoriesData = await Category.findAll();
@@ -181,6 +183,40 @@ router.get("/quiz/:id", withAuth, async (req, res) => {
     }
     catch (err) {
         console.log(`Error in getting questions by quiz id: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+router.get("/results/:quiz_id", async (req, res) => {
+    try {
+        const scoreData = await Score.findOne({
+            include: [
+                {
+                    model: Quiz
+                }
+            ],
+            where: {
+                quiz_id: req.params.quiz_id,
+                user_id: req.session.user_id
+            }
+        });
+
+        const score = scoreData.get({ plain: true });
+console.log(score);
+
+        // Gets all categories
+        const categoriesData = await Category.findAll();
+
+        const categories = categoriesData.map(category => category.get({ plain: true }));
+
+        res.render("completedquiz", {
+            score,
+            categories,
+            logged_in: req.session.logged_in
+        });
+    }
+    catch (err) {
+        console.log(`Error in getting results of a quiz: ${err}`);
         res.status(500).json(err);
     }
 });
