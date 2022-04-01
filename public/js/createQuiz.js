@@ -22,7 +22,9 @@ const addQuiz = async (event) => {
                 document.location.replace(`/createQuestions/${data.id}`)
             }
 
-        });
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 };
 
