@@ -400,6 +400,10 @@ background-color: var(--highlight);
 opacity: .5;
 /*border: 2px solid var(--outline);*/
 }
+.quizpage-container > div:hover {
+  opacity: 1.0;
+  color: var(--black)
+ }
 
 
 
