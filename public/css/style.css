@@ -25,6 +25,10 @@ a:hover {
 color: var(--highlight)
 }
 
+.bluehover:hover {
+  color: var(--header)
+}
+
 
 /* middle section of page */ 
 h2 {
