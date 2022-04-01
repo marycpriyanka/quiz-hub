@@ -29,18 +29,38 @@
 
 <h2> Your score &#8595; </h2>
 
-<div class="userscore-container">
-    <div>
+    <div class="userscore-container">
+        <div>
             <table>
                 <tr>
-            <th><u>Quiz Name</u></th> 
-            <th><u>Score</u></th>
-            </tr>
-            <tr>
-            <td>{{score.quiz.quiz_name}}</td>
-            <td>{{score.total_score}}</td>
-            </tr>
-        </table>
+                <th><u>Quiz Name</u></th> 
+                <th><u>Score</u></th>
+                </tr>
+                <tr>
+                <td>{{score.quiz.quiz_name}}</td>
+                <td>{{score.total_score}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="userscore-container">
+        <div>
+            <table>
+                <tr>
+                <th><u>User</u></th> 
+                <th><u>Score</u></th>
+                </tr>
+                {{#each scores as |score|}}
+                <tr>
+                <td>{{user.username}}</td>
+                <td>{{score.total_score}}</td>
+                </tr>
+                {{/each}}
+                
+                
+            </table>
+        </div>
     </div>
     <button id="nextquizbtn">Take me to another quiz!</button>
 

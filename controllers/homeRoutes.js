@@ -220,7 +220,27 @@ router.get("/results/:quiz_id", async (req, res) => {
         });
 
         const score = scoreData.get({ plain: true });
+      
+        // Get all scores for quiz
+        const allScoreData = await Score.findAll({
+            order: [['total_score', 'DESC']],
+            limit: 5,
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Quiz,
+                }
+            ],
+            where: {
+                quiz_id: req.params.quiz_id,
+            }
+        });
 
+        const scores = allScoreData.map(score => score.get({ plain: true }));
+      
         // Gets all categories
         const categoriesData = await Category.findAll();
 
@@ -228,6 +248,7 @@ router.get("/results/:quiz_id", async (req, res) => {
 
         res.render("completedquiz", {
             score,
+            scores,
             categories,
             logged_in: req.session.logged_in
         });
