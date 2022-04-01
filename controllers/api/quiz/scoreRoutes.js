@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Score } = require('../../../models');
+const { Score, User } = require('../../../models');
 const withAuth = require("../../../utils/auth");
 
 // Gets all scores of a quiz
