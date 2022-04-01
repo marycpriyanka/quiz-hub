@@ -220,7 +220,7 @@ router.get("/results/:quiz_id", async (req, res) => {
         });
 
         const score = scoreData.get({ plain: true });
-console.log(score);
+      
         // Get all scores for quiz
         const allScoreData = await Score.findAll({
             order: [['total_score', 'DESC']],
@@ -240,6 +240,7 @@ console.log(score);
         });
 
         const scores = allScoreData.map(score => score.get({ plain: true }));
+      
         // Gets all categories
         const categoriesData = await Category.findAll();
 
