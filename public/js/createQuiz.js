@@ -1,4 +1,4 @@
-const addQuiz = async (event) => {
+const addQuiz = (event) => {
     event.preventDefault();
 
     const quiz = document.querySelector('#quizName').value.trim();
@@ -22,7 +22,9 @@ const addQuiz = async (event) => {
                 document.location.replace(`/createQuestions/${data.id}`)
             }
 
-        });
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 };
 
