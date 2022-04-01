@@ -167,8 +167,26 @@ router.get("/quiz/:id", withAuth, async (req, res) => {
 
         const quiz = quizData.get({ plain: true });
  
+        // Shuffles the questions
         shuffle(quiz.questions);
-        console.log(quiz.questions);
+
+        // Shuffles the choices
+        for (let i = 0; i < quiz.questions.length; i++) {
+            const question = quiz.questions[i];
+
+            const choices = [];
+            choices.push(question.choice1);
+            choices.push(question.choice2);
+            choices.push(question.choice3);
+            choices.push(question.choice4);
+
+            shuffle(choices);
+
+            question.choice1 = choices[0];
+            question.choice2 = choices[1];
+            question.choice3 = choices[2];
+            question.choice4 = choices[3];
+        }
 
         // Gets all categories
         const categoriesData = await Category.findAll();
@@ -202,7 +220,7 @@ router.get("/results/:quiz_id", async (req, res) => {
         });
 
         const score = scoreData.get({ plain: true });
-console.log(score);
+      
         // Get all scores for quiz
         const allScoreData = await Score.findAll({
             include: [
@@ -220,6 +238,7 @@ console.log(score);
         });
 
         const scores = allScoreData.map(score => score.get({ plain: true }));
+      
         // Gets all categories
         const categoriesData = await Category.findAll();
 

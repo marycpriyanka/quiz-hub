@@ -4,7 +4,6 @@ const calculateAndSaveScore = async () => {
     const questions = document.querySelectorAll("h2[id^=question-]");
 
     for (let i = 0; i < questions.length; i++) {
-        console.log(questions[i]);
         const id = questions[i].id;
         const answer = questions[i].getAttribute("data-answer");
 
