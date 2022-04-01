@@ -35,6 +35,8 @@ font-family: var(--dosis);
 }
 
 
+
+
 /*HOME PAGE*/
 
 /*home header*/
@@ -125,11 +127,6 @@ font-family: var(--dosis);
   display: block;
 }
 
-
-
-
-
-
 /*HOMEPAGE GRID */
 .homepage-container {
   display: grid;
@@ -166,24 +163,9 @@ font-size: 16px;
 margin: 0px 0px 10px 0px;
 }
 
-/* LOGIN / REGISTER PAGES */
 
-.h2def {
-font-family: var(--dosis);
-font-size: 24px;
-margin: 0px 0px -10px 0px;
-}
 
-.h2defsm {
-font-size: 16px;
-margin: 0px 0px 0px 0px;
-}
 
-.def {
-font-family: var(--dosis);
-font-size: 14px;
-margin: 0px 0px -10px 0px;
-}
 
 /* LOGIN / REGISTER PAGES */
 
@@ -370,8 +352,13 @@ opacity: 0.8;
 color: var(--highlight);
 }
 
-/* TAKE QUIZ PAGE */
 
+
+
+
+
+
+/* TAKE QUIZ PAGE */
 
 .takequiz-container > div {
 font-family: var(--dosis);
@@ -382,21 +369,19 @@ padding: 50px 0;
 background-color: rgba(255, 74, 74, 0.596);
 /*border: 2px solid var(--outline);*/
 }
-
-/* TAKE QUIZ PAGE */
-
-
-.takequiz-container > div {
-font-family: var(--dosis);
-font-size: 24px;
-text-align: center;
-border-radius: 5px;
-padding: 50px 0;
-background-color: rgba(255, 74, 74, 0.596);
-/*border: 2px solid var(--outline);*/
+.takequiz-container > div > div > label {
+text-align: left;
+align-items: left;
 }
 
-/* QUIZ HOMEPAGE */
+
+
+
+
+
+
+
+/* INDIVIDUAL QUIZ HOMEPAGE */
 
 .quizpage-container {
 display: grid;
@@ -414,4 +399,28 @@ padding: 50px 0;
 background-color: var(--highlight);
 opacity: .5;
 /*border: 2px solid var(--outline);*/
+}
+
+
+
+
+
+
+/* USER SCORES PAGE*/
+
+.userscore-container > div {
+font-family: var(--dosis);
+font-size: 24px;
+text-align: center;
+border-radius: 5px;
+padding: 50px 0;
+background-color: rgba(255, 74, 74, 0.596);
+/*border: 2px solid var(--outline);*/
+}
+
+table {
+border: 1px solid black;
+margin-left: auto;
+margin-right: auto;
+padding: 5px;
 }

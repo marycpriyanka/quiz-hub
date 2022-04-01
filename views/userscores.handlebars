@@ -1,4 +1,4 @@
-<header class="home-header">
+ <header class="home-header">
         <h1><a href="/">Quiz Hub</a></h1>
         <nav>
             <ul>
@@ -13,14 +13,14 @@
                     <a href="#">Categories</a>
                     <i class="fa fa-caret-down"></i>
                     <div class="dropdown-content">
-                       {{#each categories as |category|}}
+                        {{#each categories as |category|}}
                         <a href="/category/{{category.id}}">{{category.category_name}}</a>
                         {{/each}}
                     </div>
                     </div>
                 </li>
                 <li>
-                    <a href="#" id="logout">Log Out</a>
+                    <a href="#" id="logout">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -29,18 +29,27 @@
 
     <h2> My Scores &#8595; </h2>
 
-    <div class="d-flex justify-content-center">
-    <div class="userscore-container col-4">
+ <div class="userscore-container">
+    <div>
         {{#each scores as |score|}}
-            <article>
-                <p>Quiz Name: {{quiz.quiz_name}}</p> 
-                <p>Your Score: {{score.total_score}}</p>
-            </article>
+    
+            <table>
+            <tr>
+            <th><u>Quiz Name</u></th> 
+            <th><u>Your Score</u></th>
+            </tr>
+            <tr>
+            <td>{{quiz.quiz_name}}</td>
+            <td>{{score.total_score}}</td>
+            </tr>
+    
+       
         {{/each}}
+        </table>
     </div>
-    </div>
+        
         <button id="highscoresbtn">Take me to the high scores!</button>
 
-       
+
 </main>
 <script src="/js/logout.js"></script>
