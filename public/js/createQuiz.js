@@ -1,4 +1,4 @@
-const addQuiz = async (event) => {
+const addQuiz = (event) => {
     event.preventDefault();
 
     const quiz = document.querySelector('#quizName').value.trim();
