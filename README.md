@@ -10,6 +10,7 @@ Quiz hub is a user login quiz website to allow people to share their knowledge o
 - [Usage](#usage)
 - [Technologies used](#technologies-used)
 - [License](#license)
+- [Deployed link](#deployed-link)
 - [How to Contribute](#how-to-contribute)
 - [Questions](#questions)
 
@@ -32,6 +33,10 @@ Node.js, Express.js, npm packages - shuffle-array, bcrypt, connect-session-seque
 ## License
 
 Quiz hub is available under the MIT License.
+
+## Deployed link
+
+https://quiz-hub-2022.herokuapp.com/
 
 ## How to Contribute
 
