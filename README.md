@@ -15,7 +15,15 @@ Quiz hub is a user login quiz website to allow people to share their knowledge o
 
 ## Usage
 
-
+- Use the live Heroku URL to open the deployed application. If already signed in, you will be presented with a homepage which includes existing quizzes (maximu of 9 only will be displayed). 
+- If not signed in, you will be taken to login page. If you are already a registered user, you can login and will be navigated to the homepage. 
+- If a new user, you could click to sign up and will be taken to signup page.
+- To start on a quiz right away either choose on one of the quizzes displayed on the home page or navigate to "Categories" in navigation bar and choose a quiz from there after selecting a desired category.
+- Complete the quiz and view your score. You will also be presented with the top 5 scores of that quiz.
+- To create a quiz click on "Create" in the navigation bar. You will be taken to create quiz page. Select the category of the quiz and enter the name of the quiz. Then you will be asked to enter the question and 4 choices(1 correct answer and 3 wrong answers). If you want to enter more questions, click on "Add another question". If you are done adding questions, click on Submit your quiz button. Your quiz will be added to database and you will be taken to the homepage.
+- To view all your scores click on "Scores" in navigation bar.
+- To navigate back to the home page click on "Quiz Hub" title in header.
+- Clicking "Logout" will log you out of the website.
 
 ##  Technologies used
 
