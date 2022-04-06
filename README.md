@@ -55,7 +55,7 @@ Then you will be asked to enter the question and 4 choices(1 correct answer and 
 
 ##  Technologies used
 
-Node.js, Express.js, npm packages - shuffle-array, bcrypt, connect-session-sequelize, dotenv, express-session, mysql2, sequelize, handlebars, CSS, javascript
+Node.js, Express.js, npm packages - shuffle-array, bcrypt, connect-session-sequelize, dotenv, express-session, mysql2, sequelize, handlebars, CSS, JavaScript
 
 ## License
 
