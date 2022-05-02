@@ -22,7 +22,9 @@ This program can be run through a browser using the link to the the deployed app
 - Clone this repository to receive all of the files
 - Set up your environment variables in a .env file
   DB_NAME=quiz_db
+  
   DB_USER=<mysql username>
+  
   DB_PASSWORD=<mysql password>
 - Run "npm install" in the command line of your terminal to set up all of the dependencies
 - Initialize your database by running the "schema.sql" file inside "db" folder with MySQL
