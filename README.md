@@ -17,7 +17,7 @@ Quiz hub is a user login quiz website to allow people to share their knowledge o
 
 ## Installation
 
-This program can be run through a browser using the link to the the deployed application. Alternatively, to run this application locally you will need to:
+This program can be run through a browser using the link to the deployed application. Alternatively, to run this application locally you will need to:
 
 - Clone this repository to receive all of the files
 - Set up your environment variables in a .env file
